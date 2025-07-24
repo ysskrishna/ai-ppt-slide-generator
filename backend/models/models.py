@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Text, JSON, DateTime
 from core.dbutils import Base
 from sqlalchemy.orm import declarative_mixin
-import datetime
+from datetime import datetime
 
 @declarative_mixin
 class Timestamp:
