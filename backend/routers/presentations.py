@@ -27,28 +27,28 @@ def create_presentation(presentation: PresentationCreate, db: Session = Depends(
     db.refresh(db_presentation)
     return db_presentation
 
-@router.post("/{id}/configure", response_model=PresentationOut, summary="Configure a presentation and generate PPTX")
-def configure_presentation(id: int, config: ConfigurationUpdate, db: Session = Depends(get_db)):
-    presentation = db.query(Presentation).filter(Presentation.presentation_id == id).first()
+@router.post("/{presentation_id}/configure", response_model=PresentationOut, summary="Configure a presentation and generate PPTX")
+def configure_presentation(presentation_id: int, config: ConfigurationUpdate, db: Session = Depends(get_db)):
+    presentation = db.query(Presentation).filter(Presentation.presentation_id == presentation_id).first()
     if not presentation:
         raise HTTPException(status_code=404, detail="Presentation not found")
     presentation.configuration = config.dict()
-    pptx_path = build_pptx(presentation.id, presentation.title, presentation.content, config.dict())
+    pptx_path = build_pptx(presentation.presentation_id, presentation.title, presentation.content, config.dict())
     presentation.pptx_path = pptx_path
     db.commit()
     db.refresh(presentation)
     return presentation
 
-@router.get("/{id}", response_model=PresentationOut, summary="Get a presentation")
-def get_presentation(id: int, db: Session = Depends(get_db)):
-    presentation = db.query(Presentation).filter(Presentation.presentation_id == id).first()
+@router.get("/{presentation_id}", response_model=PresentationOut, summary="Get a presentation")
+def get_presentation(presentation_id: int, db: Session = Depends(get_db)):
+    presentation = db.query(Presentation).filter(Presentation.presentation_id == presentation_id).first()
     if not presentation:
         raise HTTPException(status_code=404, detail="Presentation not found")
     return presentation
 
-@router.get("/{id}/download", summary="Download the generated PPTX")
-def download_pptx(id: int, db: Session = Depends(get_db)):
-    presentation = db.query(Presentation).filter(Presentation.presentation_id == id).first()
+@router.get("/{presentation_id}/download", summary="Download the generated PPTX")
+def download_pptx(presentation_id: int, db: Session = Depends(get_db)):
+    presentation = db.query(Presentation).filter(Presentation.presentation_id == presentation_id).first()
     if not presentation or not presentation.pptx_path:
         raise HTTPException(status_code=404, detail="PPTX not found")
     return FileResponse(path=presentation.pptx_path, filename=f"{presentation.title}.pptx", media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation")
