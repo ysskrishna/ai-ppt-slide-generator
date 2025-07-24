@@ -33,9 +33,9 @@ class PresentationCreate(BaseModel):
     custom_content: Optional[List[SlideContent]] = None
 
 class ConfigurationUpdate(BaseModel):
-    theme: Optional[str]
-    font: Optional[str]
-    color: Optional[str]
+    font_name: Optional[str]
+    font_color: Optional[str]
+    background_color: Optional[str]
 
 class PresentationOut(BaseModel):
     presentation_id: int
