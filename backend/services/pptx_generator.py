@@ -6,7 +6,7 @@ from models import enums
 import requests
 from io import BytesIO
 
-def build_pptx(presentation_id: int, title: str, slides: list, config: dict = None):
+def build_pptx(presentation_id: int, slides: list, config: dict = None):
     prs = Presentation()
     
     for slide_data in slides:

@@ -36,7 +36,6 @@ class ConfigurationUpdate(BaseModel):
 
 class PresentationOut(BaseModel):
     presentation_id: int
-    title: str
     topic: str
     content: List[SlideContent]
     configuration: Optional[Dict]

@@ -17,7 +17,6 @@ def create_presentation(presentation: PresentationCreate, db: Session = Depends(
     else:
         content, citations = generate_content_with_gemini(presentation.topic)
     db_presentation = Presentation(
-        title=presentation.topic,
         topic=presentation.topic,
         content=content,
         citations=citations
@@ -52,8 +51,8 @@ def download_pptx(presentation_id: int, db: Session = Depends(get_db)):
     
     # Generate PPTX with current configuration
     config = presentation.configuration or {}  # Use empty dict if no configuration
-    pptx_path = build_pptx(presentation.presentation_id, presentation.title, presentation.content, config)
+    pptx_path = build_pptx(presentation.presentation_id, presentation.content, config)
     presentation.pptx_path = pptx_path
     db.commit()
     
-    return FileResponse(path=pptx_path, filename=f"{presentation.title}.pptx", media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation")
+    return FileResponse(path=pptx_path, filename=f"presentation_{presentation.presentation_id}.pptx", media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation")
