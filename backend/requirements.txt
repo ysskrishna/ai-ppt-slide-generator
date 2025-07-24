@@ -4,3 +4,5 @@ sqlalchemy
 python-dotenv
 uvicorn
 psycopg2-binary
+google-generativeai
+python-pptx
