@@ -1,0 +1,36 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore virtual environment directories
+venv/
+env/
+
+# Ignore logs and local temp files
+logs/
+*.log
+*.tmp
+
+
+# Ignore .env files
+# .env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Ignore IDE/editor config files
+.vscode/
+.idea/
+*.swp
+
+# Ignore test reports
+coverage/
+*.cover
+*.coverage
+
+# Ignore compiled Python files
+build/
+dist/
+*.egg-info/
