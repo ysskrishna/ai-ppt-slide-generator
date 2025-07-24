@@ -12,8 +12,7 @@ class Timestamp:
 class Presentation(Timestamp, Base):
     __tablename__ = "presentations"
 
-    presentation_id = Column(Integer, primary_key=True, index=True)
-    id = Column(Integer, primary_key=True, index=True)
+    presentation_id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String)
     topic = Column(String)
     content = Column(JSON)

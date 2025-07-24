@@ -29,7 +29,7 @@ def create_presentation(presentation: PresentationCreate, db: Session = Depends(
 
 @router.post("/{id}/configure", response_model=PresentationOut, summary="Configure a presentation and generate PPTX")
 def configure_presentation(id: int, config: ConfigurationUpdate, db: Session = Depends(get_db)):
-    presentation = db.query(Presentation).filter(Presentation.id == id).first()
+    presentation = db.query(Presentation).filter(Presentation.presentation_id == id).first()
     if not presentation:
         raise HTTPException(status_code=404, detail="Presentation not found")
     presentation.configuration = config.dict()
@@ -41,14 +41,14 @@ def configure_presentation(id: int, config: ConfigurationUpdate, db: Session = D
 
 @router.get("/{id}", response_model=PresentationOut, summary="Get a presentation")
 def get_presentation(id: int, db: Session = Depends(get_db)):
-    presentation = db.query(Presentation).filter(Presentation.id == id).first()
+    presentation = db.query(Presentation).filter(Presentation.presentation_id == id).first()
     if not presentation:
         raise HTTPException(status_code=404, detail="Presentation not found")
     return presentation
 
 @router.get("/{id}/download", summary="Download the generated PPTX")
 def download_pptx(id: int, db: Session = Depends(get_db)):
-    presentation = db.query(Presentation).filter(Presentation.id == id).first()
+    presentation = db.query(Presentation).filter(Presentation.presentation_id == id).first()
     if not presentation or not presentation.pptx_path:
         raise HTTPException(status_code=404, detail="PPTX not found")
     return FileResponse(path=presentation.pptx_path, filename=f"{presentation.title}.pptx", media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation")

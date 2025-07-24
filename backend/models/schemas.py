@@ -1,8 +1,9 @@
 from pydantic import BaseModel
 from typing import Optional, List, Dict
+from models import enums
 
 class SlideContent(BaseModel):
-    layout: str
+    layout: enums.SlideLayout
     title: Optional[str]
     body: Optional[str]
     bullets: Optional[List[str]]
@@ -21,7 +22,7 @@ class ConfigurationUpdate(BaseModel):
     color: Optional[str]
 
 class PresentationOut(BaseModel):
-    id: int
+    presentation_id: int
     title: str
     topic: str
     content: List[SlideContent]
