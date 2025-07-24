@@ -1,15 +1,28 @@
 from pydantic import BaseModel
-from typing import Optional, List, Dict
-from models import enums
+from typing import Optional, List, Dict, Union
+from models.enums import SlideLayout
 
-class SlideContent(BaseModel):
-    layout: enums.SlideLayout
-    title: Optional[str]
-    body: Optional[str]
-    bullets: Optional[List[str]]
-    left: Optional[str]
-    right: Optional[str]
-    image_url: Optional[str]
+class TitleSlide(BaseModel):
+    layout: SlideLayout
+    title: str
+
+class BulletSlide(BaseModel):
+    layout: SlideLayout
+    title: str
+    bullets: List[str]
+
+class TwoColumnSlide(BaseModel):
+    layout: SlideLayout
+    title: str
+    left: str
+    right: str
+
+class ImageSlide(BaseModel):
+    layout: SlideLayout
+    title: str
+    image_url: str
+
+SlideContent = Union[TitleSlide, BulletSlide, TwoColumnSlide, ImageSlide]
 
 class PresentationCreate(BaseModel):
     topic: str
