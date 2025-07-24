@@ -106,8 +106,8 @@ def build_pptx(presentation_id: int, slides: list, config: dict):
                     Inches(6), Inches(4)
                 )
 
-    # Ensure output directory exists
-    os.makedirs("output", exist_ok=True)
-    path = os.path.abspath(f"./output/presentation_{presentation_id}.pptx")
+    # Ensure storage directory exists
+    os.makedirs("storage", exist_ok=True)
+    path = os.path.abspath(f"./storage/presentation_{presentation_id}.pptx")
     prs.save(path)
     return path
