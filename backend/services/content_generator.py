@@ -6,7 +6,7 @@ from models import enums
 
 genai.configure(api_key=Config.GEMINI_API_KEY)
 
-def generate_content_with_gemini(topic: str, num_slides: int = 5):
+def generate_content_with_gemini(topic: str, num_slides: int):
     model = genai.GenerativeModel("gemini-1.5-flash")
     prompt = (
         f"Generate a presentation with {num_slides} slides on the topic: '{topic}'. "

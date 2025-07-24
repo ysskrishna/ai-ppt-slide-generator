@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Union
 from models.enums import SlideLayout
 
@@ -26,10 +26,13 @@ SlideContent = Union[TitleSlide, BulletSlide, TwoColumnSlide, ImageSlide]
 
 class PresentationCreate(BaseModel):
     topic: str
+    num_slides: Optional[int] = Field(
+        default=5, ge=1, le=20, description="Number of slides (min 1, max 20)"
+    )
+
     custom_content: Optional[List[SlideContent]] = None
 
 class ConfigurationUpdate(BaseModel):
-    num_slides: Optional[int] = 5
     theme: Optional[str]
     font: Optional[str]
     color: Optional[str]

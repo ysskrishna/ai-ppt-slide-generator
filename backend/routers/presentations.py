@@ -14,7 +14,7 @@ def create_presentation(presentation: PresentationCreate, db: Session = Depends(
     if presentation.custom_content:
         content = [slide.dict() for slide in presentation.custom_content]
     else:
-        content = generate_content_with_gemini(presentation.topic)
+        content = generate_content_with_gemini(presentation.topic, presentation.num_slides)
     db_presentation = Presentation(
         topic=presentation.topic,
         content=content
