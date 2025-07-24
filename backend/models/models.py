@@ -16,6 +16,5 @@ class Presentation(Timestamp, Base):
     topic = Column(String)
     content = Column(JSON)
     configuration = Column(JSON, nullable=True)
-    citations = Column(Text)
     pptx_path = Column(String, nullable=True)
 

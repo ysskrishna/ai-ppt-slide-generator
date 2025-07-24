@@ -39,7 +39,6 @@ class PresentationOut(BaseModel):
     topic: str
     content: List[SlideContent]
     configuration: Optional[Dict]
-    citations: Optional[str]
 
     class Config:
         orm_mode = True

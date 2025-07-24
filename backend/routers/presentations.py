@@ -13,13 +13,11 @@ router = APIRouter()
 def create_presentation(presentation: PresentationCreate, db: Session = Depends(get_db)):
     if presentation.custom_content:
         content = [slide.dict() for slide in presentation.custom_content]
-        citations = "User provided custom content."
     else:
-        content, citations = generate_content_with_gemini(presentation.topic)
+        content = generate_content_with_gemini(presentation.topic)
     db_presentation = Presentation(
         topic=presentation.topic,
-        content=content,
-        citations=citations
+        content=content
     )
     db.add(db_presentation)
     db.commit()

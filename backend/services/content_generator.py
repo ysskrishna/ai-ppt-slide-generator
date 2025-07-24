@@ -46,8 +46,7 @@ def generate_content_with_gemini(topic: str, num_slides: int = 5):
         json_data = response.text
         json_clean = re.sub(r"```json|```", "", json_data).strip()
         slides = json.loads(json_clean)
-        citations = f"Content generated using Google Gemini for topic '{topic}'."
-        return slides, citations
+        return slides
     except Exception as e:
         print("Gemini content generation failed:", e)
         raise RuntimeError("Gemini content generation failed")
