@@ -6,3 +6,4 @@ uvicorn
 psycopg2-binary
 google-generativeai
 python-pptx
+requests
