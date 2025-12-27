@@ -4,6 +4,8 @@
 
 PPT Generator is a backend API service that generates PowerPoint presentations (PPTX) using AI (Google Gemini) or custom user content. It allows users to create, configure, and download presentations programmatically, supporting custom slide layouts, fonts, and colors.
 
+![OG Image](https://raw.githubusercontent.com/ysskrishna/ai-ppt-slide-generator/main/media/og.webp)
+
 ---
 
 ## Features
