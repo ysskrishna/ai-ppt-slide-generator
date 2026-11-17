@@ -5,6 +5,7 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.116.1-009688.svg)](https://fastapi.tiangolo.com/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg)](https://www.docker.com/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-336791.svg)](https://www.postgresql.org/)
+[![Author site](https://img.shields.io/badge/author-ysskrishna.space-informational)](https://ysskrishna.space)
 
 ## Overview
 
@@ -124,24 +125,32 @@ GEMINI_API_KEY=your_gemini_api_key_here
 
 Please read our [Contributing Guide](https://github.com/ysskrishna/ai-ppt-slide-generator/blob/main/CONTRIBUTING.md) for details on our code of conduct, development setup, and the process for submitting pull requests.
 
+## Built and maintained by
+
+AI PPT Generator is built and maintained by:
+
+| | Name | GitHub | Role |
+|---|------|--------|------|
+| <img src="https://github.com/ysskrishna.png?size=120" width="60" height="60" alt="Y. Siva Sai Krishna"> | **Y. Siva Sai Krishna** | [@ysskrishna](https://github.com/ysskrishna) | Creator |
+
 ## Support
 
-If you find this useful, please consider:
+If you find this project helpful:
 
-- ⭐ **Starring** the repository on GitHub to help others discover it.
-
-- 💖 **Sponsoring** to support ongoing maintenance and development.
-
-[Become a Sponsor on GitHub](https://github.com/sponsors/ysskrishna) | [Support on Patreon](https://patreon.com/ysskrishna)
+- ⭐ Star the repository
+- 🐛 [Report issues](https://github.com/ysskrishna/ai-ppt-slide-generator/issues)
+- 🔀 Submit pull requests
+- 💝 [Sponsor on GitHub](https://github.com/sponsors/ysskrishna)
 
 ## License
 
-MIT License - see the [LICENSE](https://github.com/ysskrishna/ai-ppt-slide-generator/blob/main/LICENSE) file for details.
+MIT © [Y. Siva Sai Krishna](https://github.com/ysskrishna) — see [LICENSE](LICENSE) for details.
 
-## Author
+---
 
-**Y. Siva Sai Krishna**
-
-- GitHub: [@ysskrishna](https://github.com/ysskrishna)
-
-- LinkedIn: [ysskrishna](https://linkedin.com/in/ysskrishna)
+<p align="left">
+  <a href="https://github.com/ysskrishna">Author's GitHub</a> •
+  <a href="https://linkedin.com/in/ysskrishna">Author's LinkedIn</a> •
+  <a href="https://ysskrishna.space">Author's site</a> •
+  <a href="https://github.com/ysskrishna/ai-ppt-slide-generator/issues">Report Issues</a>
+</p>
